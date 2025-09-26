@@ -25,11 +25,11 @@ VALIDATE(){
     fi
 }
 
-    cp shell-roboshop/mongo.repo /etc/yum.repos.d/mongo.repo
+    cp mongo.repo /etc/yum.repos.d/mongo.repo
     VALIDATE $? "Adding Mongo repo"
 
     dnf install mongodb -y &>>$LOG_FILE
-    VALIDATE $? "Installing mongodb"
+    VALIDATE $? "Installing mongodb-org"
 
     systemctl enable mongodb &>>$LOG_FILE
     VALIDATE $? "Enable MongoDB" 

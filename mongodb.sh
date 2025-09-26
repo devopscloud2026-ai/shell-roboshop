@@ -29,7 +29,7 @@ VALIDATE(){
     VALIDATE $? "Adding Mongo repo"
 
     dnf install mongodb-org -y &>>$LOG_FILE
-    VALIDATE $? "Installing MongoDB"
+    VALIDATE $? "Installing mongodb"
 
     systemctl enable mongodb &>>$LOG_FILE
     VALIDATE $? "Enable MongoDB" 

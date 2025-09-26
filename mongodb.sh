@@ -31,7 +31,7 @@ VALIDATE(){
     dnf install mongodb-org -y &>>$LOG_FILE
     VALIDATE $? "Installing mongodb"
 
-    systemctl enable mongodb &>>$LOG_FILE
+    systemctl enable mongod &>>$LOG_FILE
     VALIDATE $? "Enable MongoDB" 
 
     systemctl start mongodb

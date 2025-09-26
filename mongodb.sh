@@ -9,7 +9,7 @@ SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
 
 mkdir -p $LOGS_FOLDER
-echo "script start executed at: $(date)"
+echo "script start executed at: $(date)" | tee -a $LOG_FILE
 
 if [ $USERID -ne 0 ]; then
     echo "ERROR:: Please run this script with root Privelege"
@@ -18,10 +18,10 @@ fi
 
 VALIDATE(){
     if [ $1 -ne 0 ]; then
-        echo -e "$2...$R is failure $N"
+        echo -e "$2...$R is failure $N" | tee -a $LOG_FILE
         exit 1
     else
-        echo -e "$2...$G success $N"
+        echo -e "$2...$G success $N" | tee -a $LOG_FILE
     fi
 }
 
